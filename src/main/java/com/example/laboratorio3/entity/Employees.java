@@ -29,20 +29,20 @@ public class Employees {
     private LocalDate hire_date;
 
     @ManyToOne
-    @JoinColumn(name = "jobs")
+    @JoinColumn(name = "job_id")
     private Jobs job;
 
 
-    private Float salary;
+    private Double salary;
 
-    private Float comission_pct;
+    private Double commission_pct;
 
     @ManyToOne
-    @JoinColumn(name = "employees")
+    @JoinColumn(name = "manager_id")
     private Employees manager;
 
     @ManyToOne
-    @JoinColumn(name = "departments")
+    @JoinColumn(name = "department_id")
     private Departments department;
 
     public int getEmployee_id() {
@@ -101,20 +101,20 @@ public class Employees {
         this.job = job;
     }
 
-    public Float getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(Float salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
-    public Float getComission_pct() {
-        return comission_pct;
+    public Double getComission_pct() {
+        return commission_pct;
     }
 
-    public void setComission_pct(Float comission_pct) {
-        this.comission_pct = comission_pct;
+    public void setComission_pct(Double commission_pct) {
+        this.commission_pct = commission_pct;
     }
 
     public Employees getManager() {
