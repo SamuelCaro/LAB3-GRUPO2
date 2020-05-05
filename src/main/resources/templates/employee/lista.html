@@ -18,7 +18,7 @@
 <body>
     <div class="container">
         <h1>Lista de Empleados</h1>
-        <a class="btn btn-primary mt-4 mb-4" th:href="@{}"></a>                 <!-- COMPLETAR -->
+        <a class="btn btn-primary mt-4 mb-4" th:href="@{}">Nuveo empleado</a>                 <!-- COMPLETAR -->
         <form class="input-group mb-lg-3" method="post" th:action="@{}">                <!-- COMPLETAR -->
             <!-- COMPLETAR -->
             <div class="input-group-append">
@@ -31,11 +31,29 @@
             <table class="table table-sm" th:if="${}">
                 <thead>
                 <tr>
-                    <!-- COMPLETAR -->
-                </tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Puesto</th>
+                    <th>Departamento</th>
+                    <th>Ciudad</th>
+
                 </thead>
                 <tbody>
                 <!-- COMPLETAR -->
+                <tr th:each="employees, info : ${listaEmployees}">
+                    <td th:text="${info.index + 1}"></td>
+                    <td th:text="${employees.firstname"></td>
+                    <td th:text="${employees.last_name}"></td>
+                    <td th:text="${employees.job}"></td>
+                    <td th:text="${employees.department}"></td>
+                    <td th:text="${employees.department}"></td>
+
+                    <td><a class="btn btn-primary" th:href="@{'/employees/edit' + '?id=' + ${employees.id}}">Editar</a>
+                    </td>
+                    <td><a class="btn btn-danger" th:href="@{'/employees/delete' + '?id=' + ${employees.id}}">Borrar</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
