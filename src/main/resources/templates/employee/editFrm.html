@@ -12,42 +12,65 @@
 </head>
 <body class="container">
     <h2>Editar Empleado</h2><hr />
-        <form method="post" th:action="@{}">
-            <!-- COMPLETAR -->
-
+        <form method="post" th:action="@{'/employee/save'}">
             <div class="row">
                 <div class="form-group col-6">
-                    <!-- COMPLETAR -->
+                    <label for="first_name">Nombre</label>
+                    <input th:value="${employee.first_name}" type="text" class="form-control" name="first_name">
                 </div>
                 <div class="form-group col-6">
-                    <!-- COMPLETAR -->
-                </div>
-            </div>
-
-            <div class="form-group">
-                <!-- COMPLETAR -->
-            </div>
-
-            <div class="row">
-                <div class="form-group col-6">
-                    <!-- COMPLETAR -->
-                </div>
-                <div class="form-group col-6">
-                    <!-- COMPLETAR -->
+                    <label for="last_name">Apellido</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name">
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-6">
-                    <!-- COMPLETAR -->
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" id="email">
                 </div>
                 <div class="form-group col-6">
-                    <!-- COMPLETAR -->
+                    <label for="phone_number">Phone Number</label>
+                    <input type="text" class="form-control" name="phone_number" id="phone_number">
                 </div>
             </div>
 
-            <a th:href="@{}" class="btn btn-danger"></a>                 <!-- COMPLETAR -->
-            <!-- COMPLETAR -->
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="hire_date">Hire_date</label>
+                    <input type="date" class="form-control" id="hire_date" name="hire_date"/>
+                </div>
+                <div class="form-group col-6">
+                    <label for="manager">Jefe</label>
+                    <select class="form-control" name="manager" id="manager">
+                        <option th:each="employees : ${listaEmployees}" th:value="${employees.employee_id}"
+                                th:text="${employees.first_name}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="job">Trabajo</label>
+                    <select class="form-control" name="job" id="job">
+                        <option th:each="jobs : ${listaJobs}" th:value="${jobs.job_id}"
+                                th:text="${jobs.job_title}"></option>
+                    </select>
+                </div>
+                <div class="form-group col-6">
+                    <label for="department">Departamento</label>
+                    <select class="form-control" name="department" id="department">
+                        <option th:each="departments : ${listaDepartments}" th:value="${departments.department_id}"
+                                th:text="${departments.department_name}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <a th:href="@{'/listar'}" class="btn btn-danger">Cancelar</a>                 <!-- COMPLETAR -->
+            <button type="submit" class="btn btn-primary">Actualizar</button>                <!-- COMPLETAR -->
+            <div class="row">
+                <div class="form-group"></div>
+            </div>
         </form>
     </body>
 </html>
